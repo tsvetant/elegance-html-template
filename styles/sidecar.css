@@ -1,0 +1,339 @@
+body .master-wrapper,
+body #dt-drawer-open,
+body #dt-drawer-close,
+body div#dt-drawer,
+body div#dt-drawer iframe,
+body div#dt-drawer .dt-drawer-inner {
+    -webkit-transition: left 250ms ease-in-out, width 250ms ease-in-out, right 250ms ease-in-out;
+       -moz-transition: left 250ms ease-in-out, width 250ms ease-in-out, right 250ms ease-in-out;
+        -ms-transition: left 250ms ease-in-out, width 250ms ease-in-out, right 250ms ease-in-out;
+         -o-transition: left 250ms ease-in-out, width 250ms ease-in-out, right 250ms ease-in-out;
+            transition: left 250ms ease-in-out, width 250ms ease-in-out, right 250ms ease-in-out;
+}
+
+body.noDrawerTransition .master-wrapper,
+body.noDrawerTransition #dt-drawer-open,
+body.noDrawerTransition #dt-drawer-close,
+body.noDrawerTransition div#dt-drawer,
+body.noDrawerTransition div#dt-drawer iframe,
+body.noDrawerTransition div#dt-drawer .dt-drawer-inner {
+    -webkit-transition: none;
+       -moz-transition: none;
+        -ms-transition: none;
+         -o-transition: none;
+            transition: none;
+}
+
+body div#dt-drawer iframe {
+    position: relative;
+    z-index: 10;
+    visibility: hidden;
+    opacity: 0;
+    
+    -webkit-transition: opacity 250ms;
+       -moz-transition: opacity 250ms;
+        -ms-transition: opacity 250ms;
+         -o-transition: opacity 250ms;
+            transition: opacity 250ms;
+}
+body div#dt-drawer iframe.loaded {
+    visibility: visible;
+    opacity: 1;
+}
+
+body .master-wrapper {
+    position: relative;
+    left: 0;
+}
+body.sidecar-left .master-wrapper {
+    left: auto;
+    right: 0;
+}
+body.openDrawer .master-wrapper {
+    left: -224px;
+}
+body.sidecar-left.openDrawer .master-wrapper {
+    left: auto;
+    right: -224px;
+}
+
+body div#dt-drawer {
+    position: fixed;
+    z-index: 31337;
+    top: 0;
+    right: 0;
+    left: auto;
+    bottom: auto;
+    overflow: hidden;
+    width: 0;
+    background: pink;
+}
+body.noFixedPosition div#dt-drawer { position: absolute; }
+body.sidecar-left div#dt-drawer {
+    right: auto;
+    left: 0;
+}
+body.openDrawer div#dt-drawer {
+    right: 0;
+    width: 224px;
+}
+body.sidecar-left.openDrawer div#dt-drawer {
+    right: auto;
+    left: 0;
+}
+body div#dt-drawer .dt-drawer-inner {
+    width: 224px;
+    height: 100%;
+    background: #eaecef;
+    
+    box-shadow: inset 11px 0px 4px -10px rgba(0,0,0,0.31), inset -10px 0px 4px -10px rgba(0,0,0,0.31);
+}
+body.sidecar-left div#dt-drawer .dt-drawer-inner { left: -224px; }
+body.sidecar-left.openDrawer div#dt-drawer .dt-drawer-inner { left: 0; }
+
+body div#dt-drawer .dt-drawer-inner:after {
+    position: absolute;
+    z-index: 1;
+    content: "Loading...";
+    top: 200px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 40px 0 0;
+    
+    background: url('sidecar-loading.gif') center top no-repeat;
+    color: #656565;
+    font: normal 14px sans-serif;
+    text-align: center;
+    text-indent: 8px;
+}
+
+body #dt-drawer-open div.bar,
+body #dt-drawer-close div.bar {
+    background: #AAA;
+    width: 4px;
+    height: 4px;
+    position: absolute;
+    top: 13px;
+    left: 10px;
+}
+body.sidecar-left #dt-drawer-open div.bar,
+body.sidecar-left #dt-drawer-close div.bar {
+    right: 10px;
+    left: auto;
+}
+body #dt-drawer-open div.bar.horiz,
+body #dt-drawer-close div.bar.horiz {
+    width: 16px;
+}
+body #dt-drawer-open div.bar.vert,
+body #dt-drawer-close div.bar.vert {
+    top: 7px;
+    left: 16px;
+    width: 4px;
+    height: 16px;
+}
+body.sidecar-left #dt-drawer-open div.bar.vert,
+body.sidecar-left #dt-drawer-close div.bar.vert {
+    left: auto;
+    right: 16px;
+}
+body #dt-drawer-open.icon-bars div.bar.horiz,
+body #dt-drawer-open.icon-bars div.bar.vert {
+    top: 14px;
+    left: 10px;
+    height: 3px;
+    width: 18px;
+    background: none;
+    border-top: 3px solid #AAA;
+    border-bottom: 3px solid #AAA;
+}
+body.sidecar-left #dt-drawer-open.icon-bars div.bar.horiz,
+body.sidecar-left #dt-drawer-open.icon-bars div.bar.vert {
+    right: 10px;
+    left: auto;
+}
+body #dt-drawer-open.icon-bars div.bar.vert {
+    top: 8px;
+    width: 18px;
+    border-top: 3px solid #AAA;
+}
+html.ie8 body #dt-drawer-open,
+html.ie8 body #dt-drawer-open:link,
+html.ie8 body #dt-drawer-open:visited,
+html.ie8 body #dt-drawer-close,
+html.ie8 body #dt-drawer-close:link,
+html.ie8 body #dt-drawer-close:visited {
+    border: solid 3px #AAA;
+    border-right: 0;
+}
+body #dt-drawer-open,
+body #dt-drawer-open:link,
+body #dt-drawer-open:visited,
+body #dt-drawer-close,
+body #dt-drawer-close:link,
+body #dt-drawer-close:visited {
+    visibility: visible;
+    text-decoration: none;
+    color: #fff;
+    opacity: 1;
+    width: 35px;
+    height: 32px;
+    background: #313235;
+    background: rgba(49,50,53,0.95);
+    position: fixed;
+    top: 64px;
+    right: 0;
+    z-index: 25337;
+    border-radius: 20px 0 0 20px;
+    box-shadow: 0px 0px 0px 3px rgba(169,173,178,0.7);
+}
+body.noFixedPosition #dt-drawer-open,
+body.noFixedPosition #dt-drawer-open:link,
+body.noFixedPosition #dt-drawer-open:visited,
+body.noFixedPosition #dt-drawer-close,
+body.noFixedPosition #dt-drawer-close:link,
+body.noFixedPosition #dt-drawer-close:visited {
+    position: absolute;
+}
+body.sidecar-left #dt-drawer-open,
+body.sidecar-left #dt-drawer-open:link,
+body.sidecar-left #dt-drawer-open:visited,
+body.sidecar-left #dt-drawer-close,
+body.sidecar-left #dt-drawer-close:link,
+body.sidecar-left #dt-drawer-close:visited {
+    left: 0;
+    right: auto;
+    border-radius: 0 20px 20px 0;
+}
+body #dt-drawer-close,
+body #dt-drawer-close:link,
+body #dt-drawer-close:visited {
+    visibility: hidden;
+    opacity: 0;
+    z-index: 21337;
+    right: 0;
+}
+body.sidecar-left #dt-drawer-close,
+body.sidecar-left #dt-drawer-close:link,
+body.sidecar-left #dt-drawer-close:visited {
+    left: 0;
+    right: auto;
+}
+body.openDrawer #dt-drawer-open,
+body.openDrawer #dt-drawer-open:link,
+body.openDrawer #dt-drawer-open:visited {
+    visibility: hidden;
+    opacity: 0;
+    right: 224px;
+}
+body.sidecar-left.openDrawer #dt-drawer-open,
+body.sidecar-left.openDrawer #dt-drawer-open:link,
+body.sidecar-left.openDrawer #dt-drawer-open:visited {
+    left: 224px;
+    right: auto;
+}
+body.openDrawer #dt-drawer-close,
+body.openDrawer #dt-drawer-close:link,
+body.openDrawer #dt-drawer-close:visited {
+    visibility: visible;
+    opacity: 1;
+    right: 224px;
+}
+body.sidecar-left.openDrawer #dt-drawer-close,
+body.sidecar-left.openDrawer #dt-drawer-close:link,
+body.sidecar-left.openDrawer #dt-drawer-close:visited {
+    left: 224px;
+    right: auto;
+}
+body #dt-drawer-open #bowlG {
+    display: none;
+}
+body #dt-drawer-open.spinner #bowlG {
+    display: block;
+}
+body #dt-drawer-open.spinner div.bar {
+    display: none;
+}
+
+
+
+
+
+#bowlG {
+    position: absolute;
+    top: 6px;
+    right: -8px;
+}
+
+#bowlG {
+    position:relative;
+    width:16px;
+    height:16px;
+}
+
+#bowl_ringG {
+    position:absolute;
+    width:16px;
+    height:16px;
+    border:1px solid #ffffff;
+    -moz-border-radius:16px;
+    -webkit-border-radius:16px;
+    border-radius:16px;
+}
+
+.ball_holderG {
+    position:absolute;
+    width:4px;
+    height:16px;
+    left:6px;
+    top:0px;
+    -webkit-animation-name:ball_moveG;
+    -webkit-animation-duration:0.6s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-timing-function:linear;
+    -moz-animation-name:ball_moveG;
+    -moz-animation-duration:0.6s;
+    -moz-animation-iteration-count:infinite;
+    -moz-animation-timing-function:linear;
+    -o-animation-name:ball_moveG;
+    -o-animation-duration:0.6s;
+    -o-animation-iteration-count:infinite;
+    -o-animation-timing-function:linear;
+    -ms-animation-name:ball_moveG;
+    -ms-animation-duration:0.6s;
+    -ms-animation-iteration-count:infinite;
+    -ms-animation-timing-function:linear;
+}
+
+.ballG {
+    position:absolute;
+    left:0px;
+    top:-4px;
+    width:6px;
+    height:6px;
+    background:#ffffff;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+}
+
+@-webkit-keyframes ball_moveG{
+    0% { -webkit-transform:rotate(0deg) }
+    100% { -webkit-transform:rotate(360deg) }
+}
+
+@-moz-keyframes ball_moveG {
+    0% { -moz-transform:rotate(0deg) }
+    100% { -moz-transform:rotate(360deg) }
+}
+
+@-o-keyframes ball_moveG {
+    0% { -o-transform:rotate(0deg) }
+    100% { -o-transform:rotate(360deg) }
+}
+
+@-ms-keyframes ball_moveG {
+    0% { -ms-transform:rotate(0deg) }
+    100% { -ms-transform:rotate(360deg) }
+}

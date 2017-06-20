@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>dt Account</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+		<link href="scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="scripts/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<!-- Main stylesheet -->
+		<link rel="stylesheet"  type="text/css" id="theme" href="styles/custom.css" />
+		<link rel="stylesheet"  type="text/css" id="theme" href="styles/custom_frame.css" />
+
+		<link href="http://fonts.googleapis.com/css?family=Terminal+Dosis+Light" rel="stylesheet" type="text/css">
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700" rel="stylesheet" type="text/css">
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,700,600&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>	
+		
+		
+    </head>
+    <body class="noTransition">
+     
+        <div id="main" class="logged-in">
+            <div id="login-block">
+				<img src="styles/images/logo.png" style="margin: 10px 17px 0;" />
+				<hr style="margin-left: 25px;" />
+				<div class="loginWrapper">
+					<!-- Current user form -->
+					<form id="login" autocomplete="off">
+						<div class="loginPic">
+							
+							<span><strong>Welcome</strong> back</span>
+							<div class="loginActions">
+								<div><a href="#" title="Change user" class="logback flip" style="left: 15px; opacity: 1;"></a></div>
+								<div><a href="#" title="Forgot password?" class="logright" style="right: 15px; opacity: 1;"></a></div>
+							</div>
+						</div>
+						<input type="text" name="login" placeholder="Username" autocomplete="off">
+						<input type="password" name="password" class="loginPassword" autocomplete="off">
+						<div class="logControl">
+							<div class="memory"><div class="checker" id="uniform-remember1"><span><input type="checkbox" checked="checked" class="check" id="remember1" style="opacity: 0;"></span></div><label for="remember1">Remember me</label></div>
+							<button name="submit" class="btn">Login</button>
+						</div>
+					</form>
+					
+					<!-- New user form -->
+					<form action="index.html" id="recover" autocomplete="off">
+						<div class="loginPic">
+							<span><strong>Register</strong> new</span>
+							<div class="loginActions">
+								<div><a href="#" title="Forgot password?" class="logright" style="left: 15px; opacity: 1;"></a></div>
+								<div><a href="#" title="" class="logleft flip" style="right: 15px; opacity: 1;"></a></div>
+							</div>
+						</div>
+						<input type="text" name="login" placeholder="Username" autocomplete="off">
+						<input type="password" name="password" class="loginPassword" autocomplete="off" value="password">
+						<input type="password" name="password" class="loginPassword" autocomplete="off" value="password">
+						<input type="text" name="login" placeholder="email@domain.com" autocomplete="off">
+						<div class="logControl">
+							<button name="submit" class="btn">Register</button>
+						</div>
+					</form>
+				</div>
+					
+					<div class="cleafix"></div>	
+					
+				<span class="btn-round">or</span>
+					
+					<div class="cleafix"></div>	
+					
+				<div style="position: absolute;top: 495px;margin-left: 128px;">.. see the code</div>
+	</div>
+</div>
+				
+				
+				
+				
+
+        <script src="scripts/jquery-1.8.2.min.js"></script>
+		<script>
+		jQuery(function(){
+			// Checking for CSS 3D transformation support
+			$.support.css3d = supportsCSS3D();
+
+			var formContainer = $('.loginWrapper');
+			// Listening for clicks on the ribbon links
+			$('.flip').click(function(e){
+				
+				// Flipping the forms
+				formContainer.toggleClass('flipped');
+				
+				// If there is no CSS3 3D support, simply
+				// hide the login form (exposing the recover one)
+				if(!$.support.css3d){
+					$('#login').toggle();
+				}
+				e.preventDefault();
+			});
+			
+			formContainer.find('form').submit(function(e){
+				// Preventing form submissions. If you implement
+				// a backend, you might want to remove this code
+				//e.preventDefault();
+			});
+			
+			
+			// A helper function that checks for the 
+			// support of the 3D CSS3 transformations.
+			function supportsCSS3D() {
+				var props = [
+					'perspectiveProperty', 'WebkitPerspective', 'MozPerspective'
+				], testDom = document.createElement('a');
+				  
+				for(var i=0; i<props.length; i++){
+					if(props[i] in testDom.style){
+						return true;
+					}
+				}
+				
+				return false;
+			}
+			//checkbox
+			$('.checker').click(function(e){
+				$(this).children('span').toggleClass('checked');
+			});
+		});
+		</script>
+		
+		
+    </body>
+</html>
